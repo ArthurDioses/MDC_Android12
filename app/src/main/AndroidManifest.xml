@@ -11,6 +11,7 @@
         android:theme="@style/Theme.MDCAndroid12">
         <activity
             android:name=".ScrollingActivity"
+            android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.MDCAndroid12.NoActionBar">
             <intent-filter>
