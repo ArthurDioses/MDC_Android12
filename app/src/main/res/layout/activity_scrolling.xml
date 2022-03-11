@@ -19,4 +19,12 @@
         app:menu="@menu/menu_scrolling"
         app:navigationIcon="@drawable/ic_menu" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_add_check"
+        app:layout_anchor="@id/bottom_app_bar"
+        android:contentDescription="@string/add_check" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
