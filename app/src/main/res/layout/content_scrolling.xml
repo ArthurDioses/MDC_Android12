@@ -29,11 +29,32 @@
                 android:paddingEnd="@dimen/common_padding_default">
 
                 <ImageView
+                    android:id="@+id/image_card"
                     android:layout_width="@dimen/card_img_size"
                     android:layout_height="@dimen/card_img_size"
+                    android:importantForAccessibility="no"
                     android:src="@mipmap/ic_launcher"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_buy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/common_padding_min"
+                    android:text="@string/card_btn_buy"
+                    app:icon="@drawable/ic_shop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/image_card" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_skip"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/card_btn_skip"
+                    app:layout_constraintEnd_toStartOf="@id/btn_buy"
+                    app:layout_constraintTop_toTopOf="@id/btn_buy" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>

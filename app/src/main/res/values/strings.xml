@@ -91,4 +91,6 @@
     </string>
     <string name="action_settings">Settings</string>
     <string name="add_check">Add Check</string>
+    <string name="card_btn_buy">Comprar</string>
+    <string name="card_btn_skip">Omitir</string>
 </resources>
