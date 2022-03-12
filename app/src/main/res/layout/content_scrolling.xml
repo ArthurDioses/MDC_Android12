@@ -94,13 +94,44 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
+                    android:id="@+id/img_cover"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/card_img_cover_height"
                     android:background="@color/design_default_color_secondary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
 
+                <TextView
+                    android:id="@+id/tvTitleAlt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/common_padding_default"
+                    android:text="@string/card_title"
+                    android:textAppearance="?textAppearanceHeadline5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/img_cover" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/common_padding_default"
+                    android:hint="@string/card_input_url"
+                    app:endIconMode="clear_text"
+                    app:helperText="@string/card_required"
+                    app:layout_constraintEnd_toEndOf="@id/tvTitleAlt"
+                    app:layout_constraintStart_toStartOf="@id/tvTitleAlt"
+                    app:layout_constraintTop_toBottomOf="@id/tvTitleAlt">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etUrl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textUri" />
+                </com.google.android.material.textfield.TextInputLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.card.MaterialCardView>
