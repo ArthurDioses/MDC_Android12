@@ -135,6 +135,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilPassword"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -152,6 +153,15 @@
                         android:inputType="textPassword" />
 
                 </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/cbEnablePass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/common_padding_default"
+                    android:text="@string/card_enable_pass"
+                    app:layout_constraintStart_toStartOf="@id/tvTitleAlt"
+                    app:layout_constraintTop_toBottomOf="@id/tilPassword" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.card.MaterialCardView>
