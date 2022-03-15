@@ -19,17 +19,15 @@ class ScrollingActivity : AppCompatActivity() {
 
         binding = ActivityScrollingBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener {
-            if (findViewById<BottomAppBar>(R.id.bottom_app_bar).fabAlignmentMode == BottomAppBar.FAB_ALIGNMENT_MODE_CENTER) {
-                findViewById<BottomAppBar>(R.id.bottom_app_bar).fabAlignmentMode =
+        binding.fab.setOnClickListener {
+            if (binding.bottomAppBar.fabAlignmentMode == BottomAppBar.FAB_ALIGNMENT_MODE_CENTER) {
+                binding.bottomAppBar.fabAlignmentMode =
                     BottomAppBar.FAB_ALIGNMENT_MODE_END
             } else {
-                findViewById<BottomAppBar>(R.id.bottom_app_bar).fabAlignmentMode =
+                binding.bottomAppBar.fabAlignmentMode =
                     BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
             }
         }
-
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
