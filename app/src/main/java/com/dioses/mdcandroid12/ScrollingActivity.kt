@@ -48,14 +48,24 @@ class ScrollingActivity : AppCompatActivity() {
                 })
                 .show()
         }
-        Glide.with(this)
-            .load("https://s1.eestatic.com/2017/07/25/elandroidelibre/el_androide_libre_233990287_181198536_600x315.jpg")
-            .diskCacheStrategy(DiskCacheStrategy.ALL)
-            .centerCrop()
-            .into(binding.content.imgCover)
+        renderImager()
         binding.content.cbEnablePass.setOnClickListener {
             binding.content.tilPassword.isEnabled = !binding.content.tilPassword.isEnabled
         }
+        binding.content.etUrl.onFocusChangeListener = View.OnFocusChangeListener { view, focused ->
+            val url = binding.content.etUrl.text.toString()
+            if (!focused) {
+                renderImager(url)
+            }
+        }
+    }
+
+    private fun renderImager(url: String = "https://s1.eestatic.com/2017/07/25/elandroidelibre/el_androide_libre_233990287_181198536_600x315.jpg") {
+        Glide.with(this)
+            .load(url)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .centerCrop()
+            .into(binding.content.imgCover)
     }
 
 
