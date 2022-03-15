@@ -1,5 +1,6 @@
 package com.dioses.mdcandroid12
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
@@ -18,6 +19,7 @@ class ScrollingActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityScrollingBinding
 
+    @SuppressLint("ShowToast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -33,9 +35,7 @@ class ScrollingActivity : AppCompatActivity() {
             }
         }
         binding.bottomAppBar.setNavigationOnClickListener {
-            Snackbar.make(binding.root, R.string.message_action_success, Snackbar.LENGTH_SHORT)
-                .setAnchorView(binding.fab)
-                .show()
+            Snackbar.make(binding.root, R.string.message_action_success, Snackbar.LENGTH_SHORT).setAnchorView(binding.fab).show()
         }
         binding.content.btnSkip.setOnClickListener {
             binding.content.cvAdd.visibility = View.GONE
@@ -43,30 +43,34 @@ class ScrollingActivity : AppCompatActivity() {
         binding.content.btnBuy.setOnClickListener {
             Snackbar.make(it, R.string.card_buying, Snackbar.LENGTH_LONG)
                 .setAnchorView(binding.fab)
-                .setAction(R.string.card_to_go, {
+                .setAction(R.string.card_to_go) {
                     Toast.makeText(this, R.string.card_historial, Toast.LENGTH_SHORT).show()
-                })
+                }
                 .show()
         }
         renderImager()
         binding.content.cbEnablePass.setOnClickListener {
             binding.content.tilPassword.isEnabled = !binding.content.tilPassword.isEnabled
         }
-        binding.content.etUrl.onFocusChangeListener = View.OnFocusChangeListener { view, focused ->
+        binding.content.etUrl.onFocusChangeListener = View.OnFocusChangeListener { _, focused ->
             var errorStr: String? = null
             val url = binding.content.etUrl.text.toString()
             if (!focused) {
-                if (url.isEmpty()) {
-                    errorStr = getString(R.string.card_required)
-                } else if (URLUtil.isValidUrl(url)) {
-                    renderImager(url)
-                } else {
-                    errorStr = getString(R.string.card_invalid_url)
+                when {
+                    url.isEmpty() -> {
+                        errorStr = getString(R.string.card_required)
+                    }
+                    URLUtil.isValidUrl(url) -> {
+                        renderImager(url)
+                    }
+                    else -> {
+                        errorStr = getString(R.string.card_invalid_url)
+                    }
                 }
             }
             binding.content.tilUrl.error = errorStr
         }
-        binding.content.toogleButton.addOnButtonCheckedListener { group, checkedId, isChecked ->
+        binding.content.toogleButton.addOnButtonCheckedListener { _, checkedId, _ ->
             binding.content.root.setBackgroundColor(
                 when (checkedId) {
                     R.id.btnRed -> Color.RED

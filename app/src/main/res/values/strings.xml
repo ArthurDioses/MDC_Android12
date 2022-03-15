@@ -104,4 +104,6 @@
     <string name="card_to_go">Ir</string>
     <string name="card_historial">Historial</string>
     <string name="card_invalid_url">Url Inválida</string>
+    <string name="card_title_secondary">Titulo de la tarjeta</string>
+    <string name="text_hint_email">Email</string>
 </resources>
