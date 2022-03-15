@@ -9,6 +9,8 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.dioses.mdcandroid12.databinding.ActivityScrollingBinding
 import com.google.android.material.bottomappbar.BottomAppBar
 
@@ -46,6 +48,11 @@ class ScrollingActivity : AppCompatActivity() {
                 })
                 .show()
         }
+        Glide.with(this)
+            .load("https://s1.eestatic.com/2017/07/25/elandroidelibre/el_androide_libre_233990287_181198536_600x315.jpg")
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .centerCrop()
+            .into(binding.content.imgCover)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
