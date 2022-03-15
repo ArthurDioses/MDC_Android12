@@ -53,7 +53,11 @@ class ScrollingActivity : AppCompatActivity() {
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .centerCrop()
             .into(binding.content.imgCover)
+        binding.content.cbEnablePass.setOnClickListener {
+            binding.content.tilPassword.isEnabled = !binding.content.tilPassword.isEnabled
+        }
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
