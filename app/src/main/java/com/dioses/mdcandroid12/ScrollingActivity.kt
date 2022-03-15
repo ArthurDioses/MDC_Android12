@@ -1,8 +1,7 @@
 package com.dioses.mdcandroid12
 
+import android.graphics.Color
 import android.os.Bundle
-import com.google.android.material.appbar.CollapsingToolbarLayout
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
@@ -66,6 +65,15 @@ class ScrollingActivity : AppCompatActivity() {
                 }
             }
             binding.content.tilUrl.error = errorStr
+        }
+        binding.content.toogleButton.addOnButtonCheckedListener { group, checkedId, isChecked ->
+            binding.content.root.setBackgroundColor(
+                when (checkedId) {
+                    R.id.btnRed -> Color.RED
+                    R.id.btnBlue -> Color.BLUE
+                    else -> Color.GREEN
+                }
+            )
         }
     }
 

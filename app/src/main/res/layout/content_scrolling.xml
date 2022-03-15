@@ -208,7 +208,8 @@
                     android:layout_marginTop="@dimen/common_padding_default"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvMessageAlt">
+                    app:layout_constraintTop_toBottomOf="@id/tvMessageAlt"
+                    app:singleSelection="true">
 
                     <Button
                         android:id="@+id/btnRed"
